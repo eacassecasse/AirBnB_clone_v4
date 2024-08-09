@@ -25,17 +25,17 @@ def hbnb():
     Handling requests to custom templates
     """
     states = storage.all(State).values()
-    states = sorted(states, key=lambda k: k.name)
+    states = sorted(states, key=lambda e: e.name)
     st_ct = []
 
     for state in states:
-        st_ct.append([state, sorted(state.cities, key=lambda k: k.name)])
+        st_ct.append([state, sorted(state.cities, key=lambda e: e.name)])
 
     amenities = storage.all(Amenity).values()
-    amenities = sorted(amenities, key=lambda k: k.name)
+    amenities = sorted(amenities, key=lambda e: e.name)
 
     places = storage.all(Place).values()
-    places = sorted(places, key=lambda k: k.name)
+    places = sorted(places, key=lambda e: e.name)
 
     return render_template('2-hbnb.html',
                            states=st_ct,
